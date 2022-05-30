@@ -4,7 +4,7 @@ import List from "./list";
 import { useState, useEffect } from "react";
 
 function App() {
-  const api_key = "eeb186ef89094cee885218ce0a054b71";
+  const api_key = process.env.REACT_APP_API_KEY;
   // const apiadd = `https://newsapi.org/v2/everything?q=tesla&from=2022-04-30&sortBy=publishedAt&apiKey=${api_key}`;
 
   const [Articles, setArticles] = useState([]);
