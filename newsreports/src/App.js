@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 
 function App() {
   const api_key = "eeb186ef89094cee885218ce0a054b71";
-  // const apiadd = `https://newsapi.org/v2/everything?domains=wsj.com&apiKey=${api_key}`;
+  // const apiadd = `https://newsapi.org/v2/everything?q=tesla&from=2022-04-30&sortBy=publishedAt&apiKey=${api_key}`;
 
   const [Articles, setArticles] = useState([]);
 
