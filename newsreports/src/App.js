@@ -1,5 +1,6 @@
 import "./App.css";
 import Article from "./Article";
+import List from "./list";
 import { useState, useEffect } from "react";
 
 function App() {
@@ -8,10 +9,14 @@ function App() {
 
   const [Articles, setArticles] = useState([]);
 
+  const [cat, setCat] = useState(
+    "https://newsapi.org/v2/everything?domains=wsj.com&apiKey="
+  );
+
   useEffect(() => {
-    fetch("datab.json", {
+    fetch(`${cat}${api_key}`, {
       headers: {
-        "Content-Type": "application/json",
+        // "Content-Type": "application/json",
         Accept: "application/json",
       },
     })
@@ -19,15 +24,24 @@ function App() {
         return response.json();
       })
       .then((data) => {
-        console.log(data.articles);
+        //console.log(data.articles);
         setArticles(data.articles);
       })
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [cat]);
 
-  return <div>{Articles && <Article Articles={Articles} />}</div>;
+  return (
+    <>
+      <List
+        onValue={(value) => {
+          setCat(value);
+        }}
+      />
+      <div>{Articles && <Article Articles={Articles} />}</div>
+    </>
+  );
 }
 
 export default App;

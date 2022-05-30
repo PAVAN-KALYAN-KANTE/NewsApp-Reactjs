@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const List = (props) => {
   const options = [
@@ -28,28 +28,30 @@ const List = (props) => {
     },
   ];
 
-  const [value, setValue] = useState(
+  const [Value, setValue] = useState(
     "https://newsapi.org/v2/everything?domains=wsj.com&apiKey="
   );
 
   const handleChange = (event) => {
     setValue(event.target.value);
-    console.log(value);
-    props.onValue(value);
   };
 
+  useEffect(() => {
+    props.onValue(Value);
+  }, [Value]);
+
   return (
-    <div>
-      <label>
-        What do we eat?
-        <select value={value} onChange={handleChange}>
-          {options.map((option) => (
-            <option value={option.value}>{option.label}</option>
+    <div className="flex justify-center">
+      <label className="font-extrabold text-xl my-3 ">
+        What do we See?
+        <select value={Value} onChange={handleChange} className="border-solid">
+          {options.map((option, index) => (
+            <option key={option.value + index} value={option.value}>
+              {option.label}
+            </option>
           ))}
         </select>
       </label>
-
-      <p>We eat {value}!</p>
     </div>
   );
 };
