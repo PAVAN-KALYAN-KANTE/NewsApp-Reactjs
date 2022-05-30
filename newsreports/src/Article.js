@@ -3,7 +3,7 @@ import React from "react";
 function Article(props) {
   return (
     <>
-      <div className="px-24 py-10 max-w-sm w-full lg:max-w-full leading-normal">
+      <div className="px-24 py-10 max-w-sm w-full sm:max-w-full leading-normal">
         {props.Articles.map((article, index) => (
           <div
             key={article.title + index}
