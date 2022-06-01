@@ -60,13 +60,12 @@ function WeatherApp() {
           <br />
           <input
             type="submit"
-            className="rounded-full bg-red-400 w-5/6 my-4 mx-4 h-8 text-pink-50"
+            className="rounded-full bg-red-400 w-5/6 my-4 mx-4 h-8 text-pink-50 "
           />
         </form>
         <div className="my-auto mx-5">
           <button
-            className="rounded-full w-full
-            bg-red-400"
+            className="mx-10 my-5 border-2 p-3 rounded-full bg-slate-700 text-white font-bold hover:bg-neutral-200 hover:text-red-500"
             onClick={() => {
               navigate("/");
             }}

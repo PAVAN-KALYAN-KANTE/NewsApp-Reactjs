@@ -41,7 +41,7 @@ const List = (props) => {
   }, [Value]);
 
   return (
-    <div className="flex justify-center">
+    <div className="m-auto">
       <label className="font-extrabold text-xl my-3 ">
         What do we See?
         <select value={Value} onChange={handleChange} className="border-solid">
